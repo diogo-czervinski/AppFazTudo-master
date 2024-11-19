@@ -105,6 +105,16 @@ public class CaixaController {
 
     @FXML
     private void finalizarVenda() {
+        Double valorPago = Double.parseDouble(inputValorPago.getText());
+        if( inputValorPago.getCharacters().isEmpty()){
+            mostrarMensagem("Erro ao finalizar venda o valor:"+valorPago +"E insuficiente!!!!!");
+            return;
+        }
+        if(valorPago<total){
+            mostrarMensagem("Erro ao finalizar venda o valor:"+valorPago +"E insuficiente!!!!!");
+            return;
+        }
+
         try {
             for (Produto produto : listaProdutos) {
                 atualizarQuantidadeNoBanco(produto);

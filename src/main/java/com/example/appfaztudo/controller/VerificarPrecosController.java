@@ -52,15 +52,13 @@ public class VerificarPrecosController {
         String busca = inputBusca.getText();
 
         if (busca.isEmpty()) {
-            mostrarMensagem("Por favor, insira o código ou nome do produto.");
+            mostrarMensagem("Por favor, insira o nome do produto.");
             return;
         }
 
-        if (busca.matches("[A-Za-z]+")) {
+
             buscarProdutosPorNome(busca);
-        } else {
-            buscarProdutoPorCodigo(busca);
-        }
+
     }
 
     private void buscarProdutoPorCodigo(String codigo) {
